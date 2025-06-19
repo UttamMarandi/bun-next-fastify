@@ -1,0 +1,2 @@
+[workspace]
+children = ["apps/frontend", "apps/server"] 
