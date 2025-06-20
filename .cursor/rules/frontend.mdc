@@ -1,0 +1,184 @@
+---
+description: Next.js frontend development rules and best practices
+globs: "apps/frontend/**/*.{ts,tsx,js,jsx}"
+alwaysApply: true
+---
+
+### 🔧 **Project Setup & Structure**
+
+1. **Organized Folder Structure**
+
+   * Use meaningful folder names (`components/`, `pages/`, `lib/`, `hooks/`, `utils/`, `styles/`, `constants/`, etc.).
+   * Group files by feature or domain (`feature-based architecture`) if app is large.
+
+2. **Use `app/` Directory (Next.js 13+)**
+
+   * Prefer the `app/` directory for routing and layout when using the latest Next.js features (app router).
+   * Use `page.tsx`, `layout.tsx`, `loading.tsx`, and `error.tsx` appropriately.
+
+---
+
+### 🧹 **Code Style & Quality**
+
+3. **TypeScript First**
+
+   * Use TypeScript for type safety and better tooling.
+   * Strict types (`strict: true` in `tsconfig.json`) to catch more bugs at compile time.
+
+4. **Linting with ESLint**
+
+   * Use Next.js ESLint preset: `next lint`
+   * Add rules for:
+
+     * No unused imports/vars
+     * Consistent naming conventions
+     * Avoid `any` (unless absolutely necessary)
+
+5. **Formatting with Prettier**
+
+   * Enforce code formatting with Prettier.
+   * Integrate with ESLint for consistency.
+
+6. **Use Path Aliases**
+
+   * Set up `tsconfig.json`:
+
+     ```json
+     "paths": {
+       "@/components/*": ["components/*"],
+       "@/utils/*": ["utils/*"]
+     }
+     ```
+   * Keeps imports clean and maintainable.
+
+---
+
+### ⚙️ **Component & State Management**
+
+7. **Functional Components + Hooks**
+
+   * Use functional components.
+   * Use React Hooks for managing state and effects.
+   * Custom hooks (`useFeatureX`) for reusable logic.
+
+8. **Global State**
+
+   * Use `React Context` for state management.
+   * Avoid prop drilling.
+
+9. **Component Reusability**
+
+   * Follow Atomic Design for reusable UI components.
+   * Split logic-heavy components into smaller ones.
+
+---
+
+### 🚀 **Next.js-Specific Best Practices**
+
+10. **Dynamic & Static Rendering**
+
+* Use `getStaticProps`, `getServerSideProps`, or `generateStaticParams` correctly based on use case.
+* Prefer static generation when possible for better performance.
+
+11. **Image Optimization**
+
+* Use `<Image />` from `next/image` for optimized image loading.
+
+12. **Link Navigation**
+
+* Use `<Link>` from `next/link` for internal routing.
+
+13. **Metadata**
+
+* Use `metadata` API in the `app/` directory to manage SEO-friendly titles, descriptions, and open graph tags.
+
+14. **API Routes**
+
+* For server logic, use `pages/api/` or `app/api/` handlers.
+* Sanitize and validate inputs.
+
+---
+
+### 🛡️ **Security & Performance**
+
+15. **Environment Variables**
+
+* Use `.env.local` for sensitive data.
+* Prefix variables exposed to the browser with `NEXT_PUBLIC_`.
+
+16. **Avoid Client-Side Secrets**
+
+* Never expose secret keys or sensitive logic in client code.
+
+17. **Code Splitting & Lazy Loading**
+
+* Use dynamic imports for non-critical components:
+
+  ```ts
+  const HeavyComponent = dynamic(() => import('@/components/HeavyComponent'))
+  ```
+
+18. **Bundle Analysis**
+
+* Analyze bundle size using:
+
+  ```bash
+  bun run analyze
+  ```
+
+19. **Caching & Revalidation**
+
+* Use `revalidate`, `cache-control`, or `ISR` for balancing freshness and performance.
+
+---
+
+### 🎯 **Bun & Project-Specific**
+
+20. **Use Bun Commands**
+
+* Always use `bun` instead of `npm` or `yarn`:
+  * `bun run dev` - Start development server
+  * `bun run build` - Build for production  
+  * `bun run lint` - Run ESLint
+  * `bun install` - Install dependencies
+
+21. **Tailwind CSS 4**
+
+* Use Tailwind CSS 4 with PostCSS configuration
+* Prefer utility classes over custom CSS
+* Use `@apply` directive sparingly for component styles
+
+22. **React 19 Features**
+
+* Use React 19 concurrent features when appropriate
+* Leverage improved hooks and suspense patterns
+
+---
+
+### 📄 **Documentation & Readability**
+
+23. **README.md**
+
+* Maintain a clean, clear `README.md` for onboarding.
+
+24. **Comment Only When Necessary**
+
+* Let clean code explain itself. Use comments only for non-obvious logic.
+
+25. **Naming Conventions**
+
+* Components: `PascalCase`
+* Files: `kebab-case.tsx` 
+* Constants: `UPPER_SNAKE_CASE`
+
+---
+
+### 🧱 Tooling Recommendations
+
+* **Husky + lint-staged**: Pre-commit hooks for linting and formatting.
+* **Commitlint + Conventional Commits**: For clean Git history and changelog generation.
+---
+
+
+
+
