@@ -82,6 +82,7 @@ This document outlines packages and libraries shared between both web and mobile
 
 - [ ] `react-image-crop` - Crop photos to passport dimensions
 - [ ] `browser-image-compression` - Client-side image compression
+- [ ] `heic2any` - Convert iPhone HEIC photos to JPEG
 
 ### Utilities
 

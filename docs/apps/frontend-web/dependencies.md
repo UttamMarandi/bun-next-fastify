@@ -66,6 +66,7 @@ This document outlines packages for the web-optimized Next.js application.
 
 - [ ] `react-image-crop` - Crop photos to passport dimensions
 - [ ] `browser-image-compression` - Client-side image compression
+- [ ] `heic2any` - Convert iPhone HEIC photos to JPEG
 
 ### Data Fetching
 

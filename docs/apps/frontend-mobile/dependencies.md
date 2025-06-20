@@ -79,11 +79,14 @@ This document outlines packages for the mobile-optimized Next.js application wra
 - [ ] `@capacitor/keyboard` - Keyboard behavior control
 - [ ] `@capacitor/preferences` - Local storage (replaces localStorage)
 - [ ] `@capacitor/share` - Native sharing functionality
+- [ ] `@capacitor/network` - Network status for reliable uploads
+- [ ] `@capacitor/device` - Device info for photo orientation handling
 
 ### Image Processing (Shared)
 
 - [ ] `react-image-crop` - Crop photos to passport dimensions
 - [ ] `browser-image-compression` - Client-side image compression
+- [ ] `heic2any` - Convert iPhone HEIC photos to JPEG
 
 ### Data Fetching (Shared)
 
